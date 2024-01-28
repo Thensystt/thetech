@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Route, Routes, Link, NavLink } from "react-router-dom"
+import halykLogo from './assets/halyk.png'
 
 function Home() {
   return(
@@ -40,12 +41,12 @@ function Calculator() {
   }
 
   const handleCalculate = () => {
-    let customer_1 = parseInt(inputValue);
+    let customer_1 = parseInt(inputValue) * 12;
     let customer = 0;
     let first_benefit = 0;
     let second_benefit = 0;
 
-    for (let i = 0; i < parseInt(valueFromDurationPeriod) * 12; i++) {
+    for (let i = 0; i < parseInt(valueFromDurationPeriod); i++) {
       first_benefit += customer * 0.08;
       second_benefit += customer * 0.07;
       customer += customer_1;
@@ -65,27 +66,27 @@ function Calculator() {
   return(
     <>
       <div>
-        <p>Calculator</p>
+        <p>Калькулятор по Bilim-Life</p>
         <div>
-          {/* <p>Выберите платеж:</p>
+          <p>Выберите платеж:</p>
           <input type="radio" id="monthly" name='Pay'/>
           <label htmlFor="monthly">Ежемесячный</label>
           <input type="radio" id="monthly" name='Pay'/>
-          <label htmlFor="once">Единовременный</label> */}
+          <label htmlFor="once">Единовременный</label>
         </div>
         <div>
-          <p>Введите сумму</p>
+          <p>Введите сумму ежемесячного платежа:</p>
           <input type='number' value={inputValue} onChange={handleInputChange}/>
         </div>
         <div>
-          <p>Введите срок страховки:</p>
+          <p>Введите срок страховки (лет):</p>
           <input type='number' value={valueFromDurationPeriod} onChange={handleValueFromDurationPeriodChange}/>
         </div>
         <button onClick={handleCalculate}>Вычислить</button>
         {
           result !== null && (
             <p>
-              Итоговая выплата в учебное заведение: {result}
+              Итоговая выплата в учебное заведение: {result} тенге
             </p>
         )}
       </div>
@@ -98,6 +99,7 @@ function App() {
 
   return (
     <>
+    <img height="160" width="160" src={halykLogo} alt="no img" />
     <div>
         <Routes>
           <Route path="/" element={<Home />} />
