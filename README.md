@@ -12,4 +12,4 @@
 ![Img](images/button.png)
 
 Протестировать знания в области страхования:
-![Img](images/Screenshot 2024-01-28 at 11.56.30.png)
+![Img](images/test.png)
